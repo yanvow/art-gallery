@@ -42,8 +42,8 @@ function switchLanguage() {
 // Ensure DOM is fully loaded before parsing URL and loading translations
 document.addEventListener('DOMContentLoaded', () => {
   // Remove base path and trailing slash, then split
-  const path = window.location.pathname.replace(basePath, '').replace(/\/$/, '').split('/'); // e.g., ["", "en", "0001"]
-  const lang = path[1] || 'en'; // Default to 'en' if no language
-  const pieceId = path[2] || '0001'; // Default to '0001' if no piece ID
+  const path = window.location.pathname.split('/'); //
+  const lang = path[-2] || 'en'; // Default to 'en' if no language
+  const pieceId = path[-1] || '0001'; // Default to '0001' if no piece ID
   loadTranslations(lang, pieceId);
 });
