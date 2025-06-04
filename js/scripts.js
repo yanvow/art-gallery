@@ -8,7 +8,7 @@ async function loadTranslations(lang, pieceId) {
     const translations = await response.json();
     
     // Find the piece by ID
-    const piece = translations.pieces.find(p => p.page_title.includes(pieceId));
+    const piece = translations.pieces.find(p => p.piece_id === pieceId);
     if (!piece) throw new Error(`Piece ${pieceId} not found`);
     
     // Update text elements with data-i18n attributes

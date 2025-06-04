@@ -1,12 +1,14 @@
 {
   "pieces": [
     {
+      "piece_id": "0001",
       "page_title": "Galerie d'Art - Pièce 0001",
       "title": "Pièce d'Art 0001",
       "description": "Ceci est une description de la pièce d'art 0001 en français.",
       "audio": "/audio/0001_fr.mp3"
     },
     {
+      "piece_id": "0002",
       "page_title": "Galerie d'Art - Pièce 0002",
       "title": "Pièce d'Art 0002",
       "description": "Ceci est une description de la pièce d'art 0002 en français.",

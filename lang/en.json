@@ -1,12 +1,14 @@
 {
   "pieces": [
     {
+      "piece_id": "0001",
       "page_title": "Art Gallery - Piece 0001",
       "title": "Art Piece 0001",
       "description": "This is a description of Art Piece 0001 in English.",
       "audio": "/audio/0001_en.mp3"
     },
     {
+      "piece_id": "0002",
       "page_title": "Art Gallery - Piece 0002",
       "title": "Art Piece 0002",
       "description": "This is a description of Art Piece 0002 in English.",
