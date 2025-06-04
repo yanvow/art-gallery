@@ -3,7 +3,7 @@ let currentPieceId = '0001';
 
 async function loadTranslations(lang, pieceId) {
   try {
-    const response = await fetch(`/lang/${lang}.json`);
+    const response = await fetch(`../lang/${lang}.json`);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     const translations = await response.json();
     
@@ -18,7 +18,7 @@ async function loadTranslations(lang, pieceId) {
     });
     
     // Update image and audio sources
-    document.getElementById('art-image').src = `/images/${pieceId}.jpg`;
+    document.getElementById('art-image').src = `../images/${pieceId}.jpg`;
     const audioSource = document.getElementById('audio-source');
     audioSource.src = piece.audio;
     const audio = audioSource.parentElement;
@@ -36,7 +36,7 @@ async function loadTranslations(lang, pieceId) {
 
 function switchLanguage() {
   const newLang = currentLang === 'en' ? 'fr' : 'en';
-  window.location.href = `/${newLang}/${currentPieceId}`;
+  window.location.href = `../${newLang}/${currentPieceId}`;
 }
 
 // Ensure DOM is fully loaded before parsing URL and loading translations
