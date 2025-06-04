@@ -39,33 +39,6 @@ function switchLanguage() {
   window.location.href = `/${newLang}/${currentPieceId}`;
 }
 
-async function goToNextPiece() {
-  try {
-    const response = await fetch(`/lang/${currentLang}.json`);
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    const translations = await response.json();
-    
-    // Get all piece IDs
-    const pieceIds = translations.pieces.map(p => {
-      const match = p.page_title.match(/\d+$/); // Extract number from page_title
-      return match ? match[0] : null;
-    }).filter(id => id !== null);
-    
-    // Find index of current piece
-    const currentIndex = pieceIds.indexOf(currentPieceId);
-    if (currentIndex === -1) throw new Error(`Current piece ${currentPieceId} not found`);
-    
-    // Get next piece ID (loop back to first if at the end)
-    const nextIndex = (currentIndex + 1) % pieceIds.length;
-    const nextPieceId = pieceIds[nextIndex];
-    
-    // Redirect to next piece
-    window.location.href = `/${currentLang}/${nextPieceId}`;
-  } catch (error) {
-    console.error('Error navigating to next piece:', error);
-  }
-}
-
 // Ensure DOM is fully loaded before parsing URL and loading translations
 document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname.split('/'); // e.g., ["", "en", "0001"]
